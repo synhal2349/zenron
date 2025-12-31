@@ -8,12 +8,9 @@ show_sidebar: false
 ---
 
 <section class="theme-section">
-    <video autoplay muted loop playsinline class="background-video" poster="{{ '/assets/videos/video_poster.jpg' | relative_url }}">
-        <source src="{{ '/assets/videos/101430_1280x720.mp4' | relative_url }}" type="video/mp4">
-        動画を再生できません。
-    </video>
-    <div class="video-overlay"></div>
-    <div class="theme-content-wrapper">
+    <div class="background-video">
+    <img src="{{ '/assets/images/alpha-back.png' | relative_url }}" alt="背景画像">
+    </div>
         <div class="theme-message-area">
             <h2 class="theme-title">
                 <span class="word-fadein" style="animation-delay: 0.5s;">ZENRON[α]</span>
