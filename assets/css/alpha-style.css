@@ -2,21 +2,17 @@
 /* --- 設定変数 (CSS Custom Properties) --- */
 /* --------------------------------------------------------- */
 :root {
-    /* Colors */
     --color-primary: #2e69b0;
     --color-secondary: #4a90e2;
     --color-accent: #b3d9ff;
     --color-text-main: #333333;
     --color-text-sub: #666666;
     --color-white: #ffffff;
-    
-    /* Overlay */
-    --overlay-dark: rgba(0, 0, 0, 0.2);
-    
-    /* Fonts */
+
+    --overlay-dark: rgba(0, 0, 0, 0.25);
+
     --font-base: 'Zen Kaku Gothic New', 'BIZ UDPGothic', sans-serif;
-    
-    /* Spacing */
+
     --grid-gap: 30px;
     --card-radius: 12px;
 }
@@ -38,7 +34,7 @@ body {
 }
 
 /* --------------------------------------------------------- */
-/* --- テーマセクション（動画背景エリア） --- */
+/* --- ヒーローセクション（背景画像＋テキスト） --- */
 /* --------------------------------------------------------- */
 .theme-section {
     position: relative;
@@ -54,45 +50,50 @@ body {
     box-sizing: border-box;
 }
 
-/* 背景動画設定 */
+/* 背景画像 */
 .background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: -2;
 }
 
-/* 動画上の黒い網掛け */
-.video-overlay {
+.background-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-dark);
-    z-index: -1;
 }
 
-/* コンテンツラッパー */
-.theme-content-wrapper {
+/* テキスト領域（はみ出し防止の主役） */
+.theme-message-area {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     max-width: 800px;
     width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    /* はみ出し防止 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* タイトルまわり */
+/* タイトル */
 .theme-title {
-    font-size: clamp(32px, 5vw, 64px); 
+    font-size: clamp(32px, 5vw, 64px);
     font-weight: 900;
-    color: var(--color-white);
     margin: 0 0 10px;
     text-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* サブタイトル */
 .theme-subtitle {
     font-size: clamp(18px, 3vw, 32px);
     font-weight: 700;
@@ -101,17 +102,14 @@ body {
     text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* ステートメント（引用文） */
-.theme-statement {
-    margin: 0 auto 40px;
-}
-
+/* 引用文 */
 .theme-quote {
     font-size: clamp(15px, 2vw, 18px);
     line-height: 2.4;
     font-weight: 500;
     color: #e8e8e8;
     opacity: 0;
+    animation: slide-up-in 0.8s ease forwards;
 }
 
 .theme-quote.lead-in {
@@ -124,7 +122,7 @@ body {
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* アクションエリア */
+/* アクション文 */
 .theme-action {
     opacity: 0;
     animation: simple-fade-in 1s ease forwards;
@@ -175,7 +173,6 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* 画像周りの最適化 */
 .image-wrapper {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -193,7 +190,6 @@ body {
     transform: scale(1.08);
 }
 
-/* 記事テキスト */
 .articles-info {
     padding: 15px;
     flex-grow: 1;
@@ -202,7 +198,7 @@ body {
     justify-content: space-between;
 }
 
-.articles-panel .articles-title {
+.article-title {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.5;
@@ -214,7 +210,7 @@ body {
     overflow: hidden;
 }
 
-.articles-panel .articles-meta {
+.articles-meta {
     font-size: 12px;
     color: #999;
     margin: 0;
@@ -222,9 +218,8 @@ body {
 }
 
 /* --------------------------------------------------------- */
-/* --- アニメーション定義 --- */
+/* --- アニメーション --- */
 /* --------------------------------------------------------- */
-
 @keyframes simple-fade-in {
     0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -247,14 +242,9 @@ body {
     animation: slide-up-in 0.8s ease forwards;
 }
 
-.theme-quote {
-    animation: slide-up-in 0.8s ease forwards;
-}
-
 /* --------------------------------------------------------- */
-/* --- レスポンシブ (モバイル・タブレット) --- */
+/* --- レスポンシブ対応 --- */
 /* --------------------------------------------------------- */
-
 @media (max-width: 960px) {
     .articles-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -266,7 +256,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     .theme-section {
         padding: 40px 20px;
         min-height: auto;
@@ -279,36 +269,39 @@ body {
     .articles-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .articles-panel {
         flex-direction: row;
     }
+
     .image-wrapper {
         width: 35%;
         aspect-ratio: 1/1;
     }
+
     .articles-info {
         width: 65%;
     }
+
+    /* ヒーローセクションの文字をさらに読みやすく */
+    .theme-title {
+        font-size: 28px;
+    }
+    .theme-subtitle {
+        font-size: 18px;
+    }
+    .theme-quote {
+        font-size: 14px;
+        line-height: 1.8;
+    }
 }
 
-/* フッター */
+/* --------------------------------------------------------- */
+/* --- フッター --- */
+/* --------------------------------------------------------- */
 footer {
     text-align: center;
     padding: 30px;
     color: #888;
     font-size: 12px;
-}
-
-.background-image {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* 必要に応じて調整 */
-    overflow: hidden;
-}
-
-.background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
