@@ -8,7 +8,7 @@ show_sidebar: false
 ---
 
 <section class="theme-section">
-    <video autoplay muted loop playsinline class="background-video" poster="{{ '/assets/images/video_poster.jpg' | relative_url }}">
+    <video autoplay muted loop playsinline class="background-video" poster="{{ '/assets/videos/video_poster.jpg' | relative_url }}">
         <source src="{{ '/assets/videos/101430_1280x720.mp4' | relative_url }}" type="video/mp4">
         動画を再生できません。
     </video>
