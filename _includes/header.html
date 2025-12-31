@@ -1,0 +1,15 @@
+<header id="header">
+    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <nav id="gnav">
+        <ul>
+            {% for item in site.navigation %}
+            <li>
+                <a href="{{ item.url | relative_url }}"
+                   {% if page.url == item.url %}class="active"{% endif %}>
+                    {{ item.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

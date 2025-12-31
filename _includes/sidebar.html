@@ -1,0 +1,42 @@
+<aside id="sidebar">
+    <section class="sidebar-block">
+        <h3>📢 メンバーからのお知らせ</h3>
+        <p>次のイベント参加は来春の予定です。詳細は決まり次第Twitterで告知します！</p>
+    </section>
+    
+    <section class="sidebar-block">
+        <h3>🖼️ バナーエリア</h3>
+        <div class="banner-area">
+            <a href="{{ '/made-up/' | relative_url }}">
+                <img src="{{ '/assets/images/banner_works.png' | relative_url }}" alt="作品ページへ">
+            </a>
+            
+            <div class="sns-share-area">
+                <p class="share-label">＼ このページをシェア ／</p>
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet" class="share-btn btn-x" target="_blank" 
+                       onclick="window.open(this.href+'?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title));return false;">
+                        X Post
+                    </a>
+                    <br>
+                    <a href="https://www.facebook.com/sharer/sharer.php" class="share-btn btn-fb" target="_blank" 
+                       onclick="window.open(this.href+'?u='+encodeURIComponent(location.href));return false;">
+                        Facebook
+                    </a>
+                    <br>
+                    <a href="{{ site.social.instagram }}" class="share-btn btn-insta" target="_blank">
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="sidebar-block">
+        <h3>🔗 関連リンク</h3>
+        <ul>
+            <li><a href="{{ site.social.twitter }}" target="_blank">zenron 公式X (Twitter)</a></li>
+            <li><a href="{{ site.social.pixiv }}" target="_blank">zenron Pixiv</a></li>
+        </ul>
+    </section>
+</aside>

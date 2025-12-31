@@ -1,0 +1,517 @@
+@charset "UTF-8";
+
+/* ============================================
+   全ページ共通: Markdown要素スタイル
+   ============================================ */
+
+/* 引用 */
+blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 4px solid #4a90e2;
+    background-color: #f7faff;
+    color: #555;
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 0 0 10px 0;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: normal;
+}
+
+/* ネストした引用 */
+blockquote blockquote {
+    margin-top: 10px;
+    border-left-color: #2e69b0;
+    background-color: #e0f0ff;
+}
+
+/* コードブロック */
+code {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9em;
+    color: #c7254e;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+/* 画像 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.page-content img,
+.post-content img {
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* 水平線 */
+hr {
+    border: none;
+    border-top: 2px solid #e0f0ff;
+    margin: 30px 0;
+}
+
+/* リスト */
+ul, ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* 段落 */
+p {
+    margin-bottom: 1.2em;
+    line-height: 1.8;
+}
+
+/* brタグ（改行）の後にスペース */
+br {
+    display: block;
+    content: "";
+    margin-bottom: 0.5em;
+}
+
+/* 強調 */
+strong, b {
+    font-weight: bold;
+    color: #2e69b0;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* 削除線 */
+del, s {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* マーカー（ハイライト） */
+mark {
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   記事一覧ページ用スタイル
+   ============================================ */
+.articles-list {
+    margin-top: 30px;
+}
+
+.articles-item {
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #4a90e2;
+    border-radius: 4px;
+    transition: box-shadow 0.3s;
+}
+
+.articles-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.articles-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.articles-item h3 a {
+    color: #2e69b0;
+}
+
+.articles-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.articles-excerpt {
+    margin: 15px 0;
+    line-height: 1.7;
+    color: #555;
+}
+
+.articles-tags {
+    margin-top: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 8px;
+    background-color: #e0f0ff;
+    color: #4a90e2;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* ============================================
+   個別記事ページ用スタイル
+   ============================================ */
+.post {
+    max-width: 800px;
+}
+
+.post-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0f0ff;
+}
+
+.post-title {
+    font-size: 2em;
+    color: #2e69b0;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.post-content h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    border-bottom: 2px solid #b3d9ff;
+    padding-bottom: 8px;
+}
+
+.post-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #2e69b0;
+}
+
+.post-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}@charset "UTF-8";
+
+/* ============================================
+   全ページ共通: Markdown要素スタイル
+   ============================================ */
+
+/* 引用 */
+blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 4px solid #4a90e2;
+    background-color: #f7faff;
+    color: #555;
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 0 0 10px 0;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: normal;
+}
+
+/* ネストした引用 */
+blockquote blockquote {
+    margin-top: 10px;
+    border-left-color: #2e69b0;
+    background-color: #e0f0ff;
+}
+
+/* コードブロック */
+code {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9em;
+    color: #c7254e;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+/* 画像 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.page-content img,
+.post-content img {
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* 水平線 */
+hr {
+    border: none;
+    border-top: 2px solid #e0f0ff;
+    margin: 30px 0;
+}
+
+/* リスト */
+ul, ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* 段落 */
+p {
+    margin-bottom: 1.2em;
+    line-height: 1.8;
+    letter-spacing: 0.05em
+    text-align: justify
+}
+
+/* brタグ（改行）の後にスペース */
+br {
+    display: block;
+    content: "";
+    margin-bottom: 0.5em;
+}
+
+/* 強調 */
+strong, b {
+    font-weight: bold;
+    color: #2e69b0;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* 削除線 */
+del, s {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* マーカー（ハイライト） */
+mark {
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   記事一覧ページ用スタイル
+   ============================================ */
+.articles-list {
+    margin-top: 30px;
+}
+
+.articles-item {
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #4a90e2;
+    border-radius: 4px;
+    transition: box-shadow 0.3s;
+}
+
+.articles-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.articles-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.articles-item h3 a {
+    color: #2e69b0;
+}
+
+.articles-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.articles-excerpt {
+    margin: 15px 0;
+    line-height: 1.7;
+    color: #555;
+}
+
+.articles-tags {
+    margin-top: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 8px;
+    background-color: #e0f0ff;
+    color: #4a90e2;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* ============================================
+   個別記事ページ用スタイル
+   ============================================ */
+.post {
+    max-width: 800px;
+}
+
+.post-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0f0ff;
+}
+
+.post-title {
+    font-size: 2em;
+    color: #2e69b0;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.post-content h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    border-bottom: 2px solid #b3d9ff;
+    padding-bottom: 8px;
+}
+
+.post-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #2e69b0;
+}
+
+.post-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}

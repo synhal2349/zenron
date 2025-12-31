@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main-additions.css' | relative_url }}">
+    {% seo %}
+    {% feed_meta %}
+</head>
+<body>
+    {% include header.html %}
+    
+    {% if page.show_banner %}
+    <div class="zenron-banner-area">
+        <a href="{{ page.banner_link | default: '/zenron-alpha/' | relative_url }}" class="banner-link">
+            <img src="{{ '/assets/images/zenron-alpha-baner1.png' | relative_url }}" alt="ZENRON[α] ZEN大学の歩き方 特設ページはこちら">
+        </a>
+    </div>
+    {% endif %}
+
+    <main id="container">
+        <div id="main-content">
+            <section class="page-content">
+                {{ content }}
+            </section>
+        </div>
+
+        {% if page.show_sidebar != false %}
+        {% include sidebar.html %}
+        {% endif %}
+    </main>
+    
+    {% include footer.html %}
+</body>
+</html>

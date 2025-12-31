@@ -1,0 +1,380 @@
+@charset "UTF-8";
+
+/* ============================================
+   リセットCSS & 基本設定
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* フォントスタックを強化: Windows, Mac, iOS, Androidに対応 */
+    font-family: "BIZ UDPGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    line-height: 1.6;
+    background-color: #f7faff; /* わずかに水色がかった白 */
+    color: #333;
+    text-align: center;
+}
+
+a {
+    color: #4a90e2; /* アクセントの水色 */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2e69b0;
+    opacity: 0.8;
+}
+
+/* ============================================
+   ヘッダー（サイト名とナビゲーション）
+   ============================================ */
+#header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 3px solid #b3d9ff;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+#header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#header h1 a {
+    color: #4a90e2;
+}
+
+/* グローバルナビゲーション */
+#gnav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+}
+
+#gnav li a {
+    display: block;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#gnav li a:hover {
+    background-color: #e0f0ff;
+    color: #4a90e2;
+}
+
+/* ============================================
+   トップページ用バナーエリア
+   ============================================ */
+.zenron-banner-area {
+    width: 100%;
+    max-width: 960px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    padding: 0 10px;
+}
+
+.zenron-banner-area .banner-link {
+    display: inline-block;
+}
+
+.zenron-banner-area img {
+    max-width: 100%;
+    width: auto; /* 画像の元の比率を維持 */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 影を追加してリッチに */
+    border-radius: 8px; /* 角丸を追加 */
+}
+
+/* ============================================
+   メインコンテンツエリア (#container)
+   ============================================ */
+#container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #cceeff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    
+    /* フレックスレイアウト（サイドバーがあるページ用） */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* サイドバーがないページ（landing-pageクラス等）用のリセット */
+#container.landing-page {
+    display: block;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* --- メインカラム --- */
+#main-content {
+    width: 70%; /* サイドバーがある前提の幅 */
+    padding-right: 20px;
+    border-right: 1px dashed #eee;
+}
+
+/* サイドバーがない場合、メインコンテンツを100%にするための補助クラス */
+/* もしサイドバーがないページがあれば、bodyかmainに class="no-sidebar" をつけてください */
+.no-sidebar #main-content {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+}
+
+.page-content h2 {
+    font-size: 24px;
+    color: #4a90e2;
+    border-bottom: 2px solid #b3d9ff;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* --- コンテンツ内のリスト装飾 --- */
+.info-list {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px auto;
+    text-align: left; /* リストの中身は左寄せ */
+    max-width: 80%; /* 幅を制限して中央寄せ */
+}
+
+/* 見出しスタイル (HTML側で class="section-title" を付与したh3用) */
+.section-title {
+    text-align: center;
+    font-size: 1.2em;
+    color: #2e69b0;
+    margin-bottom: 20px;
+    border-bottom: 2px dotted #cceeff;
+    padding-bottom: 10px;
+}
+
+.recent-list {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.95em;
+}
+
+.recent-list li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   サイドバー (#sidebar)
+   ============================================ */
+#sidebar {
+    width: 30%;
+    padding-left: 20px;
+}
+
+.sidebar-block {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #e0f0ff;
+    background-color: #f7faff;
+    border-radius: 5px;
+}
+
+#sidebar h3 {
+    font-size: 16px;
+    color: #2e69b0;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #cceeff;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar li {
+    margin-bottom: 8px;
+}
+
+/* サイドバー内バナー */
+.banner-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.banner-area img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #cceeff;
+    border-radius: 4px;
+}
+
+.text-banner {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: opacity 0.3s;
+}
+
+.text-banner:hover {
+    opacity: 0.8;
+    color: #fff;
+}
+
+/* ============================================
+   フッター
+   ============================================ */
+#footer {
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+/* ============================================
+   レスポンシブ対応 (タブレット・スマホ)
+   ============================================ */
+
+/* タブレット (960px以下) */
+@media (max-width: 960px) {
+    #container {
+        width: 100%;
+        max-width: none;
+        padding: 20px;
+        border: none; /* 画面端の枠線を消す */
+    }
+    
+    #header h1 {
+        font-size: 24px;
+    }
+}
+
+/* スマホ (600px以下) */
+@media (max-width: 600px) {
+    /* レイアウトを縦並びに */
+    #container {
+        display: block;
+        padding: 15px;
+    }
+
+    #main-content {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+        margin-bottom: 40px;
+    }
+    
+    #sidebar {
+        width: 100%;
+        padding-left: 0;
+        border-top: 1px dashed #eee; /* サイドバーの区切りとして上線を追加 */
+        padding-top: 30px;
+    }
+
+    /* ナビゲーションを折り返し表示 */
+    #gnav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    #gnav li {
+        /* flex-basis: 45%; 2列にする場合 */
+        text-align: center;
+    }
+    
+    #gnav li a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    
+    /* 情報リストの幅を調整 */
+    .info-list {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+/* ============================================
+   SNSシェアボタン (サイドバー用)
+   ============================================ */
+.sns-share-area {
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px dashed #cceeff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.share-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    gap: 8px;
+}
+
+.share-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff !important; /* 文字色は白で強制 */
+    border-radius: 4px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.share-btn:hover {
+    opacity: 0.8;
+}
+
+/* 各SNSの色設定 */
+.btn-x {
+    background-color: #000; /* Xは黒 */
+}
+
+.btn-fb {
+    background-color: #1877f2; /* Facebookの青 */
+}
+
+.btn-insta {
+    /* インスタグラムのグラデーション */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}

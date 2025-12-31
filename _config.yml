@@ -1,0 +1,81 @@
+# サイト設定
+title: ZENRON
+description: ZEN大学生によるweb同人マガジン「ZENRON」の公式サイト
+baseurl: ""          # ← 独自ドメインなので空が正しい
+url: "https://zenron.jp"
+
+# ビルド設定
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
+  auto_ids: true
+  syntax_highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# コレクション設定
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+  made_up:
+    output: true
+    permalink: /made-up/:name/
+
+# デフォルト設定
+excerpt_separator: "<!--more-->"
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "made_up"
+    values:
+      layout: "post"
+
+# サイト情報
+author:
+  name: ZENRON 編集委員会
+  twitter: zenron_official
+
+# SNSリンク
+social:
+  twitter: https://twitter.com/zenron_official
+  pixiv: https://pixiv.net/zenron
+  instagram: https://www.instagram.com/YOUR_INSTAGRAM_ID/
+
+# ナビゲーション
+navigation:
+  - title: TOP
+    url: /
+  - title: ABOUT
+    url: /about/
+  - title: ARTICLES
+    url: /articles/
+  - title: MADE-UP
+    url: /made-up/
+  - title: COMMUNITY
+    url: /community/
+  - title: CONTACT
+    url: /contact/
+
+# 除外ファイル
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
