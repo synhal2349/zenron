@@ -1,7 +1,7 @@
 # サイト設定
 title: ZENRON
 description: ZEN大学生によるweb同人マガジン「ZENRON」の公式サイト
-baseurl: ""          # ← 独自ドメインなので空が正しい
+baseurl: "/zenron"          # ← 独自ドメインなので空が正しい
 url: "https://synhal2349.github.io/zenron/"
 
 # ビルド設定
