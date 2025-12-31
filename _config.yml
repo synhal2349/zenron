@@ -2,7 +2,7 @@
 title: ZENRON
 description: ZEN大学生によるweb同人マガジン「ZENRON」の公式サイト
 baseurl: ""          # ← 独自ドメインなので空が正しい
-url: "https://zenron.jp"
+url: "https://synhal2349.github.io/zenron/"
 
 # ビルド設定
 markdown: kramdown
